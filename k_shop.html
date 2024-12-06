@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MISHP</title>
+	<link rel="stylesheet" href="css\design_k.css">
+	<link rel="icon" href="images\ico_script.ico">
+	<script type="text/javascript"> 
+		/*Picture Change*/
+		function pictureChange(imgid,path) {
+		console.log(path);
+		document.getElementById(imgid).src=path;
+		}
+		/*Image Sources as Variables*/
+	</script>
+	<script type="text/javascript">
+        document.getElementById("txt_1").value = getSavedValue("txt_1");    // set the value to this input
+        document.getElementById("txt_2").value = getSavedValue("txt_3");   // set the value to this input
+        /* Here you can add more inputs to set value. if it's saved */
+
+        //Save the value function - save it to localStorage as (ID, VALUE)
+        function saveValue(e){
+            var id = e.id;  // get the sender's id to save it . 
+            var val = e.value; // get the value. 
+            localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override . 
+        }
+
+        //get the saved value function - return the value of "v" from localStorage. 
+        function getSavedValue  (v){
+            if (!localStorage.getItem(v)) {
+                return "";// You can change this to your defualt value. 
+            }
+            return localStorage.getItem(v);
+        }
+	</script>
+</head>
+<body>
+	<!--BANNER LEFT-->
+	<div class="bannerleft">
+		<ul class="sidenav">
+			<li class="sidenav"><a class="sidenav" href="k_sell.html">Selling</a></li>
+			<li class="sidenav"><a class="sidenav" href="k_collection.html">Collection</a></li>
+			<li class="sidenav"><a class="sidenav active" href="k_shop.html">Shop</a></li>
+		</ul>
+	</div>
+	<!--BANNER RIGHT-->
+	<div class="bannerright">
+	<br>
+	<a alt="Daemon Hunt" href="A_HTML_DH\gamble.html"><img class="showimg" alt="home" src="images/logo_dh.png" ></img><a/>
+	</div>
+	<!--Banner MIDDLE-->
+	<div class="banner">
+		<h1>MISHP</h1>
+		<br>
+		<h2>Karuta Shop</h2>
+		<br>
+		<!--LINKS TO ALL SITES-->
+		<hr width="100%" class="b1"></hr>
+		<ul>
+		  <li><a href="s1.html">Home</a></li>
+		  <li><a href="java.html">Java S.<a></li>
+		  <li><a href="milestone4.html">Milestone-4</a></li>
+		  <li><a href="sandbox.html">Sandbox</a></li>
+		</ul>
+		<hr width="100%" class="b1"></hr>
+		<!--END - LINKS TO ALL SITES-->
+		<br>
+		<br>
+	</div>
+	<!--Test Section-->
+	<br>
+	<br>
+	<table>
+		<tr> 
+			<th colspan="2">- 1. -</th>
+			<th colspan="2">- 2. -</th>
+			<th colspan="2">- 3. -</th>
+		</tr> 
+		<tr class="secondrow" style="background-color:#2b2d31;">
+			<!--Card 1-->
+			<td>
+				<span class="extra2">‿︵˓ ʚ♡ɞ ˓ ︵ ͜</span>
+				<!-- Bottom Line - Save Text Are Test -->
+				<span class="extra">|</span><textarea class="print" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6" type="text" id="txt_3" onkeyup='saveValue(this);'></textarea>
+				<img id="ticket" class="ticket" src="images\hashtag.png">
+				<br><br>
+				<span class="extra">|</span><textarea class="wl" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\heart.png">
+				<br><br>
+				<span class="extra">|</span><textarea class="price" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\ticket.png">
+				<br><br>
+				<span class="extra3">︶ ͡ ۫ ˓ ʚ♡ɞ ˒ ۫ ͡ ︶</span>
+				<textarea class="info" rows="3" cols="40" name="text" placeholder="" spellcheck="false"></textarea>
+			</td>
+				<!--Button + Image-->
+			<td>
+				<input class="invi" type="button" id="theButton" value="No card!" onclick="pictureChange('theImage1','images\\maid.png')"> <!--Function Id Diff -->
+				<img id="theImage1" class="card" src="images\e1.png"> <!--Image Url Diff & Img Id Diff-->
+			</td>
+			<!--Card 2-->			
+			<td>
+				<span class="extra2">‿︵˓ ʚ♡ɞ ˓ ︵ ͜</span>
+				<span class="extra">|</span><textarea class="print" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\hashtag.png">
+				<br><br>
+				<span class="extra">|</span><textarea class="wl" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\heart.png">
+				<br><br>
+				<span class="extra">|</span><textarea class="price" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\ticket.png">
+				<br><br>
+				<span class="extra3">︶ ͡ ۫ ˓ ʚ♡ɞ ˒ ۫ ͡ ︶</span>ㅤ
+				<textarea class="info" rows="3" cols="40" name="text" placeholder="" spellcheck="false"></textarea>
+			</td>
+				<!--Button + Image-->
+			<td>
+				<input class="invi" type="button" id="theButton" value="No card!" onclick="pictureChange('theImage2','images\\maid.png')"> <!--Function Id Diff -->
+				<img id="theImage2" class="card" src="images\e2.png"> <!--Image Url Diff & Img Id Diff-->
+			</td>
+			<!--Card 3-->
+			<td>
+				<span class="extra2">‿︵˓ ʚ♡ɞ ˓ ︵ ͜</span>
+				<span class="extra">|</span><textarea class="print" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\hashtag.png">
+				<br><br>
+				<span class="extra">|</span><textarea class="wl" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\heart.png">
+				<br><br>
+				<span class="extra">|</span><textarea class="price" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\ticket.png">
+				<br><br>
+				<span class="extra3">︶ ͡ ۫ ˓ ʚ♡ɞ ˒ ۫ ͡ ︶</span>ㅤ
+				<textarea class="info" rows="3" cols="40" name="text" placeholder="" spellcheck="false"></textarea>
+			</td>
+				<!--Button + Image-->
+			<td>
+				<input class="invi" type="button" id="theButton" value="No card!" onclick="pictureChange('theImage3','images\\maid.png')"> <!--Function Id Diff -->
+				<img id="theImage3" class="card" src="images\e3.png"> <!--Image Url Diff & Img Id Diff-->
+			</td>
+		</tr>
+		<tr class="secondrow" style="background-color:#2b2d31;">
+			<!--Card 4-->
+									<td>
+				<span class="extra2">‿︵˓ ʚ♡ɞ ˓ ︵ ͜</span>
+				<span class="extra">|</span><textarea class="print" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\hashtag.png">
+				<br><br>
+				<span class="extra">|</span><textarea class="wl" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\heart.png">
+				<br><br>
+				<span class="extra">|</span><textarea class="price" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\ticket.png">
+				<br><br>
+				<span class="extra3">︶ ͡ ۫ ˓ ʚ♡ɞ ˒ ۫ ͡ ︶</span>ㅤ
+				<textarea class="info" rows="3" cols="40" name="text" placeholder="" spellcheck="false"></textarea>
+			</td>
+				<!--Button + Image-->
+			<td>
+				<input class="invi" type="button" id="theButton" value="No card!" onclick="pictureChange('theImage4','images\\maid.png')"> <!--Function Id Diff -->
+				<img id="theImage4" class="card" src="images\e4.png"> <!--Image Url Diff & Img Id Diff-->
+			</td>
+			<!--Card 5-->
+						<td>
+				<span class="extra2">‿︵˓ ʚ♡ɞ ˓ ︵ ͜</span>
+				<span class="extra">|</span><textarea class="print" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\hashtag.png">
+				<br><br>
+				<span class="extra">|</span><textarea class="wl" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\heart.png">
+				<br><br>
+				<span class="extra">|</span><textarea class="price" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\ticket.png">
+				<br><br>
+				<span class="extra3">︶ ͡ ۫ ˓ ʚ♡ɞ ˒ ۫ ͡ ︶</span>ㅤ
+				<textarea class="info" rows="3" cols="40" name="text" placeholder="" spellcheck="false"></textarea>
+			</td>
+				<!--Button + Image-->
+			<td>
+				<input class="invi" type="button" id="theButton" value="No card!" onclick="pictureChange('theImage5','images\\maid.png')"> <!--Function Id Diff -->
+				<img id="theImage5" class="card" src="images\e5.png"> <!--Image Url Diff & Img Id Diff-->
+			</td>
+			<!--Card 6-->
+						<td>
+				<span class="extra2">‿︵˓ ʚ♡ɞ ˓ ︵ ͜</span>
+				<span class="extra">|</span><textarea class="print" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\hashtag.png">
+				<br><br>
+				<span class="extra">|</span><textarea class="wl" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\heart.png">
+				<br><br>
+				<span class="extra">|</span><textarea class="price" rows="1" cols="6" name="text" placeholder="..." spellcheck="false" maxlength="6"></textarea>
+				<img id="ticket" class="ticket" src="images\ticket.png">
+				<br><br>
+				<span class="extra3">︶ ͡ ۫ ˓ ʚ♡ɞ ˒ ۫ ͡ ︶</span>ㅤ
+				<textarea class="info" rows="3" cols="40" name="text" placeholder="" spellcheck="false"></textarea>
+			</td>
+				<!--Button + Image-->
+			<td>
+				<input class="invi" type="button" id="theButton" value="No card!" onclick="pictureChange('theImage6','images\\maid.png')"> <!--Function Id Diff -->
+				<img id="theImage6" class="card" src="images\e6.png"> <!--Image Url Diff & Img Id Diff-->
+			</td>
+		</tr>
+
+	</table>
+</body>
+<footer>
+	<a href="impressum.html"><p class="ftext">Impressum</p></a>
+</footer>
+</html>

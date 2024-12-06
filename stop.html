@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MISHP</title>
+	<link rel="stylesheet" href="css\design.css">
+	<link rel="icon" href="images\ico_script.ico">
+	<!--SCRIPTS-->
+	<script src="js\date.js"></script>
+	<script src="js\toggleError.js"></script>
+</head>
+<body>
+	<!--BANNER LEFT-->
+	<div class="bannerleft">
+		<a href="https://www.hs-mittweida.de/" target="blank"><img alt="logo_hsmw" src="images\logo_hsmw_white.png" width="80%" class="needspace"></img></a>
+	</div>
+	<!--BANNER RIGHT-->
+	<div class="bannerright">
+		<!----------DATE TODAY---------->
+		<br>
+		<span class="white" id="datumsausgabe"></span><br>
+		<span class="white" id="datumsausgabe2"></span>
+		<script type="text/javascript">berechne();</script><!--Activating the Function "berechne"-->
+		<br>
+		<div class="space"></div>
+		<div class="imglinks">
+			<a alt="Google Docs" href="https://docs.google.com/spreadsheets/" target="_blank"><img class="showimg" alt="home" src="images\Logo_GoogleDocs.jpg" ></img></a>
+				<br><br><br>
+			<a alt="ChatGPT" href="https://chat.openai.com/" target="_blank"><img class="showimg" alt="ChatGPT" src="images\logo_ChatGPT.png"></img></a>
+				<br><br><br>
+			<a alt="Karuta" href="k_collection.html"><img class="showimg" alt="home" src="images\logo_karuta.png"></img></a>
+				<br><br><br>
+		</div>
+	</div>
+	<!--Banner MIDDLE-->
+	<div class="banner"><br>
+		<!--<hr width="100%" class="b1"></hr><br>-->
+		<!--LINKS TO ALL SITES-->
+		<ul>
+			<li><p></li>
+			<li><p>&nbsp;&nbsp;</li>
+			<a href="index.html"><p class="fontlogo">Study Project<br>MISHP</p><br></a>
+			<li><p></li>
+			<li><p></li>
+			<li><a class="white" href="index.html">Home</a><!--ACTIVE--></li>
+			<div class="dropdown">
+				<li class="dropbtn">
+					<a href="s2.html">Semester</a>
+					<div id="myDropdown" class="dropdown-content">
+						<div class="boxinvi">
+							<a class="white" href="s2.html">Semester 2</a><br>
+							<a class="white" href="s1.html">Semester 1</a>
+						</div>
+					</div>
+				</li>
+			</div>
+			<li><a href="java.html">Programmierung</a></li>
+			<li><a href="notes.html">Notizen</a></li>
+			<li><a href="sandbox.html">Sandbox</a></li>
+			<li><button class="buttinvi1" id="a" onclick="toggleError(this)"><img id="icon" class="icon" alt="visibility" src="images\icon_eye_closed.svg"></button></li>
+		</ul>
+		<!--END LINKS TO ALL SITES-->
+		<br><br>
+	</div>
+	<!--SITE CONTENT-->
+	<div class="content">
+		<br><br>
+		<h1 class="white">Under Construction</h1>
+		<br><br>
+		<a href="index.html"><img alt="stop" src="images\stop.png"></a>
+	</div>
+</body>
+<footer>
+	<a href="impressum.html"><p class="ftext">Impressum</p></a>
+</footer>
+</html>

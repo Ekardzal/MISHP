@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MISHP</title>
+	<link rel="stylesheet" href="css\design_k.css">
+	<link rel="icon" href="images\ico_script.ico">
+	<script type="text/javascript"> 
+		/*Picture Change*/
+		function pictureChange(imgid,path) {
+		console.log(path);
+		document.getElementById(imgid).src=path;
+		}
+		/*Image Sources as Variables*/
+	</script>
+	<script type="text/javascript">
+        document.getElementById("txt_1").value = getSavedValue("txt_1");    // set the value to this input
+        document.getElementById("txt_2").value = getSavedValue("txt_3");   // set the value to this input
+        /* Here you can add more inputs to set value. if it's saved */
+
+        //Save the value function - save it to localStorage as (ID, VALUE)
+        function saveValue(e){
+            var id = e.id;  // get the sender's id to save it . 
+            var val = e.value; // get the value. 
+            localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override . 
+        }
+
+        //get the saved value function - return the value of "v" from localStorage. 
+        function getSavedValue  (v){
+            if (!localStorage.getItem(v)) {
+                return "";// You can change this to your defualt value. 
+            }
+            return localStorage.getItem(v);
+        }
+</script> 
+</head>
+<body>
+	<!--BANNER LEFT-->
+	<div class="bannerleft">
+		<ul class="sidenav">
+			<li class="sidenav"><a class="sidenav" href="k_sell.html">Selling</a></li>
+			<li class="sidenav"><a class="sidenav active" href="k_collection.html">Collection</a></li>
+			<li class="sidenav"><a class="sidenav" href="k_shop.html">Shop</a></li>
+		</ul>
+	</div>
+	<!--BANNER RIGHT-->
+	<div class="bannerright">
+	<br>
+		<a alt="Daemon Hunt" href="A_HTML_DH\gamble.html"><img class="showimg" alt="home" src="images/logo_dh.png" ></a>
+	</div>
+	<!--Banner MIDDLE-->
+	<div class="banner">
+		<li><p></li>
+		<li><p>&nbsp;&nbsp;</li>
+		<a href="index.html"><p class="fontlogo">>MISHP</p><br></a>
+		<br>
+		<h2>Karuta Collection</h2>
+		<br>
+		<!--LINKS TO ALL SITES-->
+		<hr width="100%" class="b1"></hr>
+		<ul>
+		  <li><a href="s1.html">Home</a></li>
+		  <li><a href="java.html">Java S.<a></li>
+		  <li><a href="milestone4.html">Milestone-4</a></li>
+		  <li><a href="sandbox.html">Sandbox</a></li>
+		</ul>
+		<hr width="100%" class="b1"></hr>
+		<!--END - LINKS TO ALL SITES-->
+		<br>
+		<br>
+	</div>
+	<!--Test Section-->
+	<br>
+	<br>
+	<table>
+		<tr> 
+			<th>- 1. -</th>
+			<th>- 2. -</th>
+			<th>- 3. -</th>
+		</tr> 
+		<tr class="secondrow" style="background-color:#2b2d31;">
+			<!--Card 1-->
+				<!--Button + Image-->
+			<td>
+				<img class="imgA1" src=".\images\kc\karuta_frame_dark_iron.png"> <!--Image Url Diff & Img Id Diff-->
+				<img id="theImage1" class="imgB1" src=".\images\kc\c1.jpg"> <!--Image Url Diff & Img Id Diff-->
+			</td>
+			<!--Card 2-->
+				<!--Button + Image-->
+			<td>
+				<img class="imgA1" src=".\images\kc\karuta_frame_dark_iron.png"> <!--Image Url Diff & Img Id Diff-->
+				<img id="theImage2" class="imgB1" src=".\images\kc\c2.jpg"> <!--Image Url Diff & Img Id Diff-->
+			</td>
+			<!--Card 3-->
+				<!--Button + Image-->
+			<td>
+				<img class="imgA1" src=".\images\kc\karuta_frame_dark_iron.png"> <!--Image Url Diff & Img Id Diff-->
+				<img id="theImage3" class="imgB1" src=".\images\kc\c3.jpg"> <!--Image Url Diff & Img Id Diff-->
+			</td>
+		</tr>
+		<tr class="secondrow" style="background-color:#2b2d31;">
+			<!--Card 4-->
+				<!--Button + Image-->
+			<td>
+				<img class="imgA1" src=".\images\kc\karuta_frame_dark_iron.png"> <!--Image Url Diff & Img Id Diff-->
+				<img id="theImage4" class="imgB1" src=".\images\kc\c4.jpg"> <!--Image Url Diff & Img Id Diff-->
+			</td>
+			<!--Card 5-->
+				<!--Button + Image-->
+			<td>
+				<img class="imgA1" src=".\images\kc\karuta_frame_dark_iron.png"> <!--Image Url Diff & Img Id Diff-->
+				<img id="theImage5" class="imgB1" src=".\images\kc\c5.jpg"> <!--Image Url Diff & Img Id Diff-->
+			</td>
+			<!--Card 6-->
+				<!--Button + Image-->
+			<td>
+				<img class="imgA1" src=".\images\kc\karuta_frame_dark_iron.png"> <!--Image Url Diff & Img Id Diff-->
+				<img id="theImage6" class="imgB1" src=".\images\kc\c6.jpg"> <!--Image Url Diff & Img Id Diff-->
+			</td>
+		</tr>
+
+	</table>
+</body>
+<footer>
+	<a href="impressum.html"><p class="ftext">Impressum</p></a>
+</footer>
+</html>
