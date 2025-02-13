@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>MISHP</title>
+	<!--<link rel="stylesheet" href="css\design.css">-->
+	<link rel="icon" href="images\ico_script.ico">
+	<!--SCRIPTS-->
+	<script src="js\date.js"></script>
+	<script src="js\toggleError.js"></script>
+	    <script>
+        // Beim Laden der Seite prüfen, ob ein anderer Tab aktiv ist
+        if (localStorage.getItem("activeTab") === "true") {
+            alert("Das Tool ist bereits in einem anderen Tab geöffnet.");
+            window.close(); // Tab automatisch schließen (funktioniert nicht in allen Browsern)
+        } else {
+            // Diesen Tab als aktiv markieren
+            localStorage.setItem("activeTab", "true");
+        }
+
+        // Wenn der Tab geschlossen wird, den Lock entfernen
+        window.addEventListener("beforeunload", () => {
+            localStorage.removeItem("activeTab");
+        });
+    </script>
+    <style>
+        body {text-align:center; font-family: 'Lato', sans-serif; background-color:#6fa3ef; color:black;}
+        h1 {font-size:42px; margin-top:40px; margin-bottom:40px;}
+        p {font-size:28px;}
+        li {font-size:22px;}
+        button {width:10vw; height:7vh; min-width:110px; min-height:40px;}
+        .rounded-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: rgba(0, 123, 255, 0.7); /* Halbtransparentes Blau */
+            border: none;
+            border-radius: 25px; /* Abgerundete Ecken */
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+            transition: all 0.3s ease; /* Weiche Übergänge */
+			margin-left:10px;
+			margin-right:10px;
+        }
+
+        /* Hover-Effekt */
+        .rounded-button:hover {
+            background-color: rgba(0, 123, 255, 0.9); /* Weniger transparent */
+            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Verstärkter Schatten */
+        }
+
+        /* Aktiver Zustand */
+        .rounded-button:active {
+            transform: scale(0.98); /* Leichtes "Drücken"-Gefühl */
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+			text-align:center;
+			color: white;
+			border-spacing: 3px; /* Abstand zwischen Zellen */
+			border-collapse: separate; /* Standardwert: separate Zellen */
+        }
+
+        table, th, td {
+            border: 1px solid transparent;
+			border-radius:10px;
+        }
+
+        th, td {
+            padding: 10px;
+			background-color: rgba(0, 123, 255, 0.7);
+        }
+		.comment-cell {
+			cursor: pointer;
+		}
+		.comment-cell input {
+			display: none;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		.comment-cell.editing input {
+			display: block;
+		}
+		.comment-cell.editing span {
+			display: none;
+		}
+		#dailySummary {
+			list-style: none; /* Entfernt Aufzählungszeichen */
+			padding: 0;       /* Entfernt Einzug auf der linken Seite */
+			margin: 0;        /* Optional: Entfernt Außenabstände */
+		}
+    </style>
+</head>
+<body>
+<!-- DEACTIVATED BECAUSE STYLESHEET NOT ADAPTED YET
+	<!--BANNER LEFT
+	<div class="bannerleft">
+		<a href="https://www.hs-mittweida.de/" target="blank"><img alt="logo_hsmw" src="images\logo_hsmw_white.png" width="80%" class="needspace"></img></a>
+	</div>
+	<!--BANNER RIGHT
+	<div class="bannerright">
+		<!----------DATE TODAY
+		<br>
+		<span class="white" id="datumsausgabe"></span><br>
+		<span class="white" id="datumsausgabe2"></span>
+		<script type="text/javascript">berechne();</script><!--Activating the Function "berechne"
+		<br>
+		<div class="space"></div>
+		<div class="imglinks">
+			<a alt="Google Docs" href="https://docs.google.com/spreadsheets/" target="_blank"><img class="showimg" alt="home" src="images\Logo_GoogleDocs.jpg" ></img></a>
+				<br><br><br>
+			<a alt="ChatGPT" href="https://chat.openai.com/" target="_blank"><img class="showimg" alt="ChatGPT" src="images\logo_ChatGPT.png"></img></a>
+				<br><br><br>
+			<!--<a alt="Karuta" href="k_sell.html"><img class="showimg" alt="home" src="images\logo_karuta.png"></img></a>
+				<br><br><br>
+			<a href="ani_wl.html"><img class="showimg" alt="Anime" src="images\luffy.jpg"></img></a>
+				<br><br><br>-->
+		</div>
+	</div>
+	<!--Banner MIDDLE
+	<div class="banner"><br>
+		<!--<hr width="100%" class="b1"></hr><br>-->
+		<!--LINKS TO ALL SITES
+		<ul>
+			<li><p></li>
+			<li><p>&nbsp;&nbsp;</li>
+			<a href="index.html"><p class="fontlogo">Study Project<br>MISHP</p><br></a>
+			<li><p></li>
+			<li><p></li>
+			<li><a class="white active" href="index.html">Home</a><!--ACTIVE</li>
+			<div class="dropdown">
+				<li class="dropbtn">
+					<a href="s2.html">Semester</a>
+					<div id="myDropdown" class="dropdown-content">
+						<div class="boxinvi">
+							<a class="white" href="s2.html">Semester 2</a><br>
+							<a class="white" href="s1.html">Semester 1</a>
+						</div>
+					</div>
+				</li>
+			</div>
+			<li><a href="java.html">Programmierung</a></li>
+			<li><a href="notes.html">Notizen</a></li>
+			<li><a href="sandbox.html">Sandbox</a></li>
+			<li><button class="buttinvi1" id="a" onclick="toggleError(this)"><img id="icon" class="icon blasha" alt="visibility" src="images\icon_eye_closed.svg"></button></li>
+		</ul>
+		<!--END LINKS TO ALL SITES
+		<br><br>
+	</div>
+-->
+	<!--SITE CONTENT-->
+	<div class="content">
+		<br><br>
+    <h1>Arbeitszeit-Tracker</h1>
+	<input type="number" id="alarmTime" placeholder="Alarmzeit (Sekunden)">
+    <button id="startStopButton" class="rounded-button">Starten</button>
+	<button id="saveButton" class="rounded-button">Speichern</button>
+    <button id="deleteButton" class="rounded-button">Löschen</button>
+    <p id="timerDisplay">Timer ist gestoppt</p>
+	<script>
+	</Script>
+    <table id="logTable">
+        <thead>
+            <tr>
+				<th>Datum</th>
+                <th>Start</th>
+                <th>Ende</th>
+                <th>Dauer</th>
+				<th>Kommentar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Hier werden die Log-Einträge eingefügt -->
+        </tbody>
+    </table>
+    <ul id="dailySummary"></ul>
+    <script>
+        const button = document.getElementById("startStopButton");
+        const deleteButton = document.getElementById("deleteButton");
+		const saveButton = document.getElementById("saveButton");
+        const timerDisplay = document.getElementById("timerDisplay");
+        const logTable = document.getElementById("logTable").getElementsByTagName("tbody")[0];
+        const dailySummaryElement = document.getElementById("dailySummary");
+		<!--PENIS-->
+
+
+        let isRunning = false;
+        let timerStart = null;
+        let intervalId = null;
+
+        // Daten aus dem Local Storage laden
+        const logs = JSON.parse(localStorage.getItem("MISHP_workLogs")) || [];
+        renderLogs();
+        renderDailySummary();
+
+        button.addEventListener("click", () => {
+            if (isRunning) {
+				const endTime = Date.now();
+				clearInterval(intervalId); // Stoppe den Echtzeit-Timer
+				updateLog(timerStart, endTime);
+				button.textContent = "Starten";
+				timerDisplay.textContent = "Timer ist gestoppt.";
+				document.title = "Arbeitszeit-Tracker - Timer gestoppt"; // Tab-Titel ändern
+				isRunning = false;
+            } else {
+                timerStart = Date.now();
+                button.textContent = "Stoppen";
+                isRunning = true;
+
+                // Sofortige Anzeige beim Start
+                updateTimerDisplay();
+                // Starte den Echtzeit-Timer
+                intervalId = setInterval(updateTimerDisplay, 1000);
+				document.title = "Arbeitszeit-Tracker - Timer läuft"; // Tab-Titel änder
+            }
+        });
+
+        deleteButton.addEventListener("click", () => {
+            if (logs.length === 0) {
+                alert("Es gibt keine gespeicherten Daten.");
+                return;
+            }
+
+            const confirmDownload = confirm("Vor dem Löschen, herunterladen?");
+            if (confirmDownload) {
+                downloadLogsAsTxt();
+                localStorage.removeItem("MISHP_workLogs");
+                logs.length = 0;
+                renderLogs();
+                renderDailySummary();
+            } else {
+                localStorage.removeItem("MISHP_workLogs");
+                logs.length = 0;
+                renderLogs();
+                renderDailySummary();
+            }
+        });
+		
+		saveButton.addEventListener("click", () => {
+            if (logs.length === 0) {
+                alert("Es gibt keine gespeicherten Daten.");
+                return;
+            }
+
+            const confirmSave = confirm("Gespeicherten Daten als .txt-Datei herunterladen?");
+            if (confirmSave) {
+                downloadLogsAsTxt();
+            } else {
+				return;
+            }
+        });
+
+		function updateLog(start, end) {
+			const duration = end - start;
+			const logEntry = {
+				date: new Date(start).toLocaleDateString(),
+				start: new Date(start).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+				end: new Date(end).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+				duration: formatDuration(duration),
+				comment: "" // Standardmäßig leerer Kommentar
+			};
+			logs.unshift(logEntry);
+			localStorage.setItem("MISHP_workLogs", JSON.stringify(logs));
+			renderLogs();
+		}
+
+		function renderLogs() {
+			logTable.innerHTML = "";
+			logs.forEach((log, index) => {
+				const row = logTable.insertRow();
+				const dateCell = row.insertCell(0);
+				const startCell = row.insertCell(1);
+				const endCell = row.insertCell(2);
+				const durationCell = row.insertCell(3);
+				const commentCell = row.insertCell(4);
+
+				dateCell.textContent = log.date;
+				startCell.textContent = log.start;
+				endCell.textContent = log.end;
+				durationCell.textContent = log.duration;
+
+				// Kommentarzelle mit Klick-Interaktion
+				commentCell.className = "comment-cell";
+				const span = document.createElement("span");
+				span.textContent = log.comment || "Klicken, um Kommentar hinzuzufügen";
+				const input = document.createElement("input");
+				input.type = "text";
+				input.value = log.comment;
+
+				commentCell.appendChild(span);
+				commentCell.appendChild(input);
+
+				// Klick-Interaktion für Bearbeitung
+				commentCell.addEventListener("click", () => {
+					commentCell.classList.add("editing");
+					input.focus();
+				});
+
+				input.addEventListener("blur", () => {
+					commentCell.classList.remove("editing");
+					log.comment = input.value.trim();
+					span.textContent = log.comment || "Klicken, um Kommentar hinzuzufügen";
+					localStorage.setItem("MISHP_workLogs", JSON.stringify(logs));
+				});
+			});
+		}
+
+        function renderDailySummary() {
+            dailySummaryElement.innerHTML = "";
+            const dailyTotals = getDailyTotals();
+            Object.keys(dailyTotals).forEach(date => {
+                const li = document.createElement("li");
+                li.textContent = `${date}: ${dailyTotals[date]}`;
+                dailySummaryElement.appendChild(li);
+            });
+        }
+
+        function getDailyTotals() {
+            const dailyTotals = {};
+
+            logs.forEach(log => {
+                if (!dailyTotals[log.date]) {
+                    dailyTotals[log.date] = 0;
+                }
+                const durationInMs = parseDuration(log.duration);
+                dailyTotals[log.date] += durationInMs;
+            });
+
+            // Umwandeln der Gesamtzeit von Millisekunden in ein lesbares Format
+            for (const date in dailyTotals) {
+                dailyTotals[date] = formatDuration(dailyTotals[date]);
+            }
+
+            return dailyTotals;
+        }
+
+        function updateTimerDisplay() {
+            const elapsed = Date.now() - timerStart;
+            timerDisplay.textContent = `Timer läuft: ${formatDuration(elapsed)}`;
+        }
+
+        function formatDuration(ms) {
+            const totalSeconds = Math.floor(ms / 1000);
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            return `${hours}h ${minutes}m ${seconds}s`;
+        }
+
+
+        function parseDuration(durationStr) {
+            const regex = /(\d+)h (\d+)m (\d+)s/;
+            const match = regex.exec(durationStr);
+            if (match) {
+                const hours = parseInt(match[1]);
+                const minutes = parseInt(match[2]);
+                const seconds = parseInt(match[3]);
+                return (hours * 3600 + minutes * 60 + seconds) * 1000; // In Millisekunden
+            }
+            return 0;
+        }
+
+		function downloadLogsAsTxt() {
+			const logContent = logs
+				.map(log => 
+					`Datum: ${log.date}, Start: ${log.start}, Ende: ${log.end}, Dauer: ${log.duration}, Kommentar: ${log.comment || "Keine"}`
+				)
+				.join("\n");
+			const blob = new Blob([logContent], { type: "text/plain" });
+			const link = document.createElement("a");
+			const currentDate = new Date().toLocaleDateString('de-DE').replace(/\./g, '-');
+			link.href = URL.createObjectURL(blob);
+			link.download = `arbeitszeiten-${currentDate}.txt`;
+			link.click();
+}
+
+
+    </script>
+	</div>
+</body>
+<!-- DEACTIVATED BECAUSE STYLESHEET NOT ADAPTED YET
+<footer>
+	<a href="impressum.html"><p class="ftext">Impressum</p></a>
+</footer>
+-->
+
+</html>
