@@ -1,28 +1,34 @@
-html {
-	width:100vw;
-	height:100vh;
-	background-color:#d7d7db;
-}
-head {	
-}
-body {
-	background-color:#A9714B;
-	overflow-x:hidden;
-	width:100vw;
-	height:100%;
-	text-align:center;
-	font-size:10px;
-	font-family:Arial, sans-serif;
-	/*----Learned - removes space between html and body----*/
-	margin:0;
-    padding:0;
+html, body {
+    height: 100%;
+	min-height:100%;
+    margin: 0;
+    padding: 0;
 	background: linear-gradient(to bottom, #2f2f2f, #010A14);
 }
+head {}
+body {
+	width:100vw;
+	overflow-x:hidden;
+	text-align:center;
+	font-family:Arial, sans-serif;
+}
+footer {
+	color:white;
+	background-color: #010112;
+	width:100%;
+	margin:0px;
+    padding:1px;
+    position: absolute;
+    bottom: 0;
+	}
 /* FONT ---------------------------------------------------- */
 h1 {
-	font-size:34px;
+	font-size:26px;
 	color:white;
-} 
+}
+a {
+	text-decoration:none;
+}
 .box-grey {
 	display:block;
 	width:70%;
@@ -31,19 +37,33 @@ h1 {
 	margin-left:auto;
 	margin-right:auto;
 	border-radius:5px;
-	margin-top:12px;
+	margin-top:30px;
 	margin-bottom:12px;
 	padding:7px;
 }
 .box-grey h1 {margin:0;}
+hr {
+	border: none;
+	height: 2px;
+	background-color: black;
+}
+.line {
+	width: 100%;
+	height: 1px;
+	background-color: white;
+}
 /* NAVIGATION ---------------------------------------------------- */ 
 .nav-bar{
+	display: flex;
+	align-items: center; /* Vertikal zentrieren */
+	overflow: hidden;
 	background: linear-gradient(to bottom, #0A0A0A, #010A14);
-	/*background-color:#010A14;*/
 	width:100vw;
 	padding-top:3px;
+	padding-bottom:3px;	
 	margin-left: auto;
 	margin-right: auto;
+	border:white solid 0px;
     }
 .nav-bar li a {
 	color:white;
@@ -75,28 +95,59 @@ h1 {
 .dropdown-content a:hover {} /* Change color of dropdown links on hover */
 .dropdown:hover .dropdown-content {opacity: 1;} /* Show the dropdown menu on hover */
 .dropdown:hover .dropbtn {background-color:#010112;} /* Change the background color of the dropdown button when the dropdown content is shown */
+/* Nav Left */
+.nav-logo {
+	display:block;
+	width:80%;
+	height:auto;
+	margin-right:auto;
+	margin-left:auto;
+	margin-top:25px;
+	margin-bottom:25px;
+	}
 .nav-title	{
-	position:absolute;
+	position:relative;
 	font-weight:bold;
 	font-size:24px;
 	color:white;
 	margin:4px;
-	left:2%;
+	left:3%;
 	float:left;
 	margin-top:0;
 	margin-left:20px;
 	margin-right:0;
 }
+.nav-button {
+	display: block;
+	width: 85%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 25px;
+	border: solid lightslategrey 1px;
+	background: radial-gradient(#2f2f2f, #010A14);
+	fonz-size: 16px;
+	padding: 8px;
+	color: white;
+}
+.nav-button:hover {
+	transform: scale(0.97);
+}
+
 /*----Navigation Bar----*/
 ul {
-	width:63%;
+	border:white solid 0px;
+	width:60%;
 	list-style-type: none;
 	margin:0;
 	overflow: hidden;
 	top:0;
+vertical-align:center;
 	margin-left: auto;
 	margin-right: auto;
 	border-radius:5px;
+	padding-top:0;
+	padding-bottom:7px;
 }
 li {
 float:left;
@@ -108,14 +159,27 @@ li a:hover {
 	text-decoration:underline;
 }
 .content {
-	content-align:center;
 	width:80%;
 	max-width:80%;
 	margin-left:auto;
 	margin-right:auto;
 	align-items:center;
 }
-/*Modul Übersicht  ---------------------------------------------------- */ 
+/*Banner Left  ---------------------------------------------------- */
+.bannerleft {
+	position: fixed;
+	top: 100px; /* Abstand zur Navbar */
+	left: 40px; /* Abstand zum linken Rand */
+	width: 10vw; /* Breite der Seitenleiste */
+	height: calc(90vh - 100px); /* Höhe anpassen, damit sie immer sichtbar bleibt */
+	background:#010A14;; /* Beispielhintergrund */
+	color: white;
+	padding: 10px;
+	border: solid lightslategrey 0px;
+	border-radius:4px;
+	box-shadow: 0px 5px 15px rgba(34,40,57,0.4);
+}
+/*Modul Übersicht  ---------------------------------------------------- */
 .div-flex {
 	margin-top:40px;
 	margin-bottom:40px;
@@ -132,7 +196,7 @@ li a:hover {
 	max-width:275px;
 	max-height:275px;
 	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-	opacity:0.9;
+	opacity:0.8;
 	overflow:hidden;
 	margin-left:auto;
 	margin-right:auto;
@@ -141,8 +205,14 @@ li a:hover {
     display: inline-block; /* Damit mehrere Module nebeneinanderstehen können */
 	padding:0;
 }
-.div-modul:hover {
+.modul:hover {
 	opacity:1;
+}
+.modul a {
+	color:white;
+	fonz-size:14px;
+	font-weight:normal;
+	z-index:2;
 }
 .div-modul img{
 	max-width:275px;
@@ -156,6 +226,21 @@ li a:hover {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	vertical-align:center;
+	color:white;
+	font-weight:bold;
+	font-size:18px;
+	background:rgba(0,0,0,0.8);
+	padding:12px;
+	user-select:none;
+}
+.modul-title-back {
+	width:100%;
+	display:block;
+	position:relative;
+	top: 0%;
+	left: 50%;
+	transform: translate(-50%);
 	vertical-align:center;
 	color:white;
 	font-weight:bold;

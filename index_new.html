@@ -4,23 +4,27 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css\design_new.css">
 </head>
-<body>							
+<body>
+	<!--BANNER LEFT-->
+	<div class="bannerleft">
+		<h1>4. Semester</h1>
+		<hr class="line";>
+		<a href="index_new.html"><div class="nav-button">Module</div></a>
+		<div class="nav-button">Exams</div>
+		<img src="images/logo_hsmw_white.png" class="nav-logo">
+	</div>
 	<!--Navigationsliste-->
-	<div class="nav-bar"><br>
-		<a href="index.html"><p class="nav-title">Study Project<br>MISHP</p><br></a>
+	<div class="nav-bar">
+		<img class="nav-title" style="max-width:150px;" src="images\logo_test.png">
+		<a style="display:none;" href="index.html"><p class="nav-title">Study Project<br>MISHP</p><br></a>
 		<ul>
-			<li><p></li>
-			<li><p>&nbsp;&nbsp;</li>
-
-			<li><p></li>
-			<li><p></li>
 			<li><a class="white active" href="index_new.html">Home</a><!--ACTIVE--></li>
 			<div class="dropdown">
 				<li class="dropbtn">
 					<a href="s2.html">Zeitraum &#9662;</a>
 					<div id="myDropdown" class="dropdown-content">
 						<div class="boxinvi">
-							<a id="black-link" href="s3.html">1. Semester</a><br>
+							<a id="black-link" href="">1. Semester</a><br>
 							<a id="black-link" href="s3.html">2. Semester</a><br>
 							<a id="black-link" href="s2.html">3. Semester</a><br>
 							<a id="black-link" href="s1.html">4. Semester</a>
@@ -29,11 +33,10 @@
 				</li>
 			</div>
 		</ul>
-		<!--END LINKS TO ALL SITES-->
-		<br>
 	</div>
+	<!--Content-->
 	<div class="content">
-		<div class="box-grey"><h1>4. Semester</h1></div>
+		<div class="box-grey"><h1>Module</h1></div>
 		<div class="div-flex">
 			<div class="modul"> <!--vorlesungsraum mit prototyp roboterarm, büchern und konferenztisch mit bildschirm-->
 				<div class="modul-inner">
@@ -42,10 +45,13 @@
 						<img src="images/modul_ww3.jpg">
 					</div>
 					<div class="modul-back">  <!--Rückseite-->
-						<p style="background:rgba(255,255,255,0.8); color:black;">Dozenten</p>
+						<div class="modul-title-back">Wissenschaft und Wirtschaft 3</div>
+						<hr class="line">
 						<p><a>Vodel, Matthias</a></p>
-						<p style="background:rgba(255,255,255,0.8); color:black;">Links</p>
-						<p><a href="https://bildungsportal.sachsen.de/opal" target="blank">Opal</a></p><p><a>Learning</a></p>
+						<hr class="line">
+						<p><a style="visibility:hidden;" href="https://bildungsportal.sachsen.de/opal" target="blank">Opal</a></p>
+						<p><a style="visibility:hidden; color:grey; text-decoration:none;">Learning</a></p>
+
 					</div>
 				</div>
 			</div> <!-- Modul Ende -->
@@ -130,8 +136,7 @@
 				</div>
 			</div> <!-- Modul Ende -->
 		</div>
-		<p style="color:white;">Here</p>
-		<div id="markdown-content" style="color:white;"></div>
+		<!--<div id="markdown-content" style="color:white;"></div>-->
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
 	<script>
@@ -149,7 +154,8 @@
 			});
 		});
 	</script>
-</body>
 <footer>
+	<P>Impressum</p>
 </footer>
+</body>
 </html>
