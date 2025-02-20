@@ -3,15 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css\design_new.css">
+	<!--Scripts-->
+	<script src="js\toggleError.js"></script>
 </head>
 <body>
 	<!--BANNER LEFT-->
 	<div class="bannerleft">
 		<h1>4. Semester</h1>
-		<hr class="line";>
+		<hr class="line">
 		<a href="index_new.html"><div class="nav-button">Module</div></a>
 		<div class="nav-button">Exams</div>
+		<hr class="line">
 		<img src="images/logo_hsmw_white.png" class="nav-logo">
+		<a href="https://www.intranet.hs-mittweida.de/sportal" target="blank"><div class="nav-button">Studentenportal</div></a>
+	</div>
+	<!--BANNER RIGHT-->
+	<div class="bannerright">
+		<br><br>
+		<div class="space"></div>
+		<div class="imglinks">
+			<a alt="Google Docs" href="https://docs.google.com/spreadsheets/" target="_blank"><img class="showimg" alt="home" src="images\Logo_GoogleDocs.jpg" ></a>
+			<a alt="ChatGPT" href="https://chat.openai.com/" target="_blank"><img class="showimg" alt="ChatGPT" src="images\logo_ChatGPT.png"></a>
+			<a alt="Game Concepts" href="game_concepts.html"><img class="showimg" alt="Game Concepts" src="images\game_concept.jpg"></a>
+		</div>
 	</div>
 	<!--Navigationsliste-->
 	<div class="nav-bar">
@@ -31,7 +45,12 @@
 						</div>
 					</div>
 				</li>
+				<li><button class="eyeOpen" id="a" onclick="toggleError(this)"><img id="icon" class="icon" alt="visibility" src="images\icon_eye_closed.svg"></button></li>
 			</div>
+			<li class="search-container">
+				<input type="text" placeholder="Suche..." class="search-bar">
+				<button class="search-btn">🔍</button>
+			</li>
 		</ul>
 	</div>
 	<!--Content-->
@@ -51,7 +70,6 @@
 						<hr class="line">
 						<p><a style="visibility:hidden;" href="https://bildungsportal.sachsen.de/opal" target="blank">Opal</a></p>
 						<p><a style="visibility:hidden; color:grey; text-decoration:none;">Learning</a></p>
-
 					</div>
 				</div>
 			</div> <!-- Modul Ende -->
