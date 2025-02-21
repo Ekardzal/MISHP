@@ -34,6 +34,7 @@ a {
 	text-decoration:none;
 }
 .box-grey {
+	border:solid white 0px;
 	display:block;
 	width:100%;
 	background:#010A14;
@@ -112,13 +113,9 @@ hr {
 	height:auto;
 	margin-right:auto;
 	margin-left:auto;
-	margin-top:25px;
-	margin-bottom:25px;
+	margin-top:0px;
+	margin-bottom:0px;
 	user-select:none;
-	/* 	position: absolute;
-   bottom: 0;
-   left: 50%;
-   transform: translateX(-50%); Zentriert das Bild */
 }
 .nav-title	{
 	position:relative;
@@ -148,6 +145,40 @@ hr {
 }
 .nav-button:hover {
 	transform: scale(0.97);
+}
+.menu-icon-div {
+	position:absolute;
+	margin:10px;
+	margin-top:auto;
+	margin-bottom:auto;
+	display:inline-block;
+	align-content:center;
+	padding: 6px 11px;
+	background-color:#1c1c1c;
+	border-radius:5px;
+	cursor:pointer;
+}
+.menu-icon-div:hover {background-color: #0056b3;}
+.menu-icon-div:active {transform:scale(0.9);}
+.menu-icon {
+	position:relative;
+	display: flex;
+	flex-direction:column;
+	justify-content:space-between;
+	width: 20px;   /* Gesamtbreite des Icons */
+	height: 20px;  /* Gesamthöhe des Icons */
+	margin-left:auto;
+	margin-right:auto;
+
+}
+.menu-icon span {
+	display: block;
+	width: 4px;    /* Durchmesser eines Punktes */
+	height: 4px;
+	background-color:lightgrey; /* Farbe der Punkte */
+	border-radius: 50%;     /* Macht die Elemente rund */
+	margin-left:auto;
+	margin-right:auto;
 }
 /*----Navigation Bar----*/
 ul {
@@ -399,11 +430,10 @@ li a:hover {
 /* Styling für das Suchfeld */
 .search-container {
 	position:relative;
-	left:46%;
+	left:40%;
 	align-items: center;
 	z-index:2;
 }
-
 .search-bar {
 	padding: 8px;
 	border-radius: 5px;
@@ -411,37 +441,21 @@ li a:hover {
 	width: 200px;
 	margin-right: 10px;
 }
-
 .search-bar:focus {
 	outline: none;
 	border: 2px solid #007BFF;
 }
-
 .search-btn {
 	padding: 8px 12px;
-	background-color: #007BFF;
+	background:#1c1c1c;
 	border: none;
 	border-radius: 5px;
 	color: white;
 	cursor: pointer;
 }
-
-.search-btn:hover {
-	background-color: #0056b3;
-}
-.eyeOpen, .eyeClosed {
-	width:30px;
-	height:auto;
-	border: none;
-	cursor: pointer;
-	appearance: none;
-	background-color:white;
-	padding:1px;
-	border-radius:5px;
-	opacity:0.8;
-	margin-left:100px;
-	user-select:none;
-}
+.search-btn:hover {background-color: #0056b3;}
+.search-btn:active {transform:scale(0.9);}
+.eyeOpen, .eyeClosed {}
 .icon {width:22px; margin:auto; vertical-align:center; position:relative; display:block;}
 /* Template - game_concepts.html */
 .game-picture {
@@ -486,3 +500,4 @@ li a:hover {
 	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
 	opacity:1;
 }
+/**/

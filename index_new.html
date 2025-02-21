@@ -4,18 +4,19 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css\design_new.css">
 	<!--Scripts-->
-	<script src="js\toggleError.js"></script>
 </head>
 <body>
 	<!--BANNER LEFT-->
 	<div class="bannerleft">
-		<h1>4. Semester</h1>
 		<hr class="line">
+		<h1>4. Semester</h1>
 		<a href="index_new.html"><div class="nav-button">Module</div></a>
 		<div class="nav-button">Exams</div>
 		<hr class="line">
 		<img src="images/logo_hsmw_white.png" class="nav-logo">
 		<a href="https://www.intranet.hs-mittweida.de/sportal" target="blank"><div class="nav-button">Studentenportal</div></a>
+		<a href="https://campus.hs-mittweida.de/" target="blank"><div class="nav-button">Campus-Portal</div></a>
+		<a href="https://download.hs-mittweida.de/intranet/" target="blank"><div class="nav-button">Intranet</div></a>
 	</div>
 	<!--BANNER RIGHT-->
 	<div class="bannerright">
@@ -45,11 +46,11 @@
 						</div>
 					</div>
 				</li>
-				<li><button class="eyeOpen" id="a" onclick="toggleError(this)"><img id="icon" class="icon" alt="visibility" src="images\icon_eye_closed.svg"></button></li>
 			</div>
 			<li class="search-container">
 				<input type="text" placeholder="Suche..." class="search-bar">
 				<button class="search-btn">🔍</button>
+				<div class="menu-icon-div" onclick="toggleError(this)"><div class="menu-icon"><span></span><span></span><span></span></div></div>
 			</li>
 		</ul>
 	</div>
@@ -171,6 +172,20 @@
 				modul.classList.toggle("active");
 			});
 		});
+	</script>
+	<script>
+		let isOpen = false;  // Variable zur Verfolgung des Zustands
+		function toggleError(button) {
+			const element = document.querySelector('.bannerright');
+			if (isOpen) {
+				// HIDE
+				element.style.right = '-8%';
+			} else {
+				// SHOW
+				element.style.right = '0%';
+			}
+			isOpen = !isOpen;  // Toggle the state
+		}
 	</script>
 <footer>
 	<P>Impressum</p>

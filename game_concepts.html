@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css\design_new.css">
 	<!--Scripts-->
-	<script src="js\toggleError.js"></script>
 </head>
 <body>
 	<!--BANNER LEFT-->
@@ -131,6 +130,20 @@
 				pictureDiv.classList.toggle("fullscreen");
 			}
 		});
+	</script>
+	<script>
+		let isOpen = false;  // Variable zur Verfolgung des Zustands
+		function toggleError(button) {
+			const element = document.querySelector('.bannerright');
+			if (isOpen) {
+				// HIDE
+				element.style.right = '-8%';
+			} else {
+				// SHOW
+				element.style.right = '0%';
+			}
+			isOpen = !isOpen;  // Toggle the state
+		}
 	</script>
 <footer>
 	<P>Impressum</p>
