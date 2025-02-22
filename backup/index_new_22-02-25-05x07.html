@@ -8,7 +8,7 @@
 <body>
 	<!--BANNER LEFT-->
 	<div class="bannerleft" id="element6">
-		<h1 class="ban-h1">4. Semester</h1>
+		<h1>4. Semester</h1>
 		<a href="index_new.html"><div class="nav-button">Module</div></a>
 		<div class="nav-button">Exams</div>
 		<img src="images/logo_hsmw_white.png" class="nav-logo">
@@ -31,7 +31,7 @@
 	<div class="nav-bar" id="element1">
 		<img class="nav-title" style="max-width:150px;" src="images\logo_test.png">
 		<a style="display:none;" href="index.html"><p class="nav-title">Study Project<br>MISHP</p><br></a>
-		<ul id="element2" class="nav-ul">
+		<ul id="element2">
 			<li><a class="white active" href="index.html">Home</a><!--ACTIVE--></li>
 			<div class="dropdown">
 				<li class="dropbtn">
@@ -45,6 +45,7 @@
 						</div>
 					</div>
 				</li>
+				<li style="color:white;" onclick="toggleColorControls();">Color</li>
 			</div>
 			<li class="search-container">
 				<input type="text" placeholder="Suche..." class="search-bar">
@@ -155,211 +156,85 @@
 			</div> <!-- Modul Ende -->
 			<!--Design Tool-->
 			<div id="colorControls" style="color:white;">
-				<h1>Design Tool</h1>
+				<h2>Design Tool</h2>
 				<!-- Controls werden hier dynamisch erstellt -->
-				<div id="colorValues">
-					<h3>Eingestellte Farbwerte:</h3>
-					<pre id="colorValuesList"></pre>
-					<button id="copyButton" class="nav-button">Farbwerte kopieren</button>
-				</div>
 			</div>
-			<!-- Liste der Farbwerte -->
-
 		</div>
 		<script>
 			// Elemente, die angepasst werden sollen
 			const elementsToStyle = [
-				{ className: 'nav-bar', label: 'Element 1', textColor: '#000000' },
-				{ className: 'nav-ul', label: 'Element 2', textColor: '#000000' },
-				{ className: 'content', label: 'Element 3', textColor: '#000000' },
-				{ className: 'box-grey', label: 'Element 4', textColor: '#000000' },
-				{ className: 'modul', label: 'Element 5', textColor: '#000000' },
-				{ className: 'bannerleft', label: 'Element 6', textColor: '#000000' },
-				{ className: 'ban-h1', label: 'Element 7', textColor: '#000000' },
-				{ className: 'nav-button', label: 'Element 8', textColor: '#000000' },
-				{ className: 'element8', label: 'Element 9', textColor: '#000000' }
+				{ id: 'element1', label: 'Element 1' },
+				{ id: 'element2', label: 'Element 2' },
+				{ id: 'element3', label: 'Element 3' },
+				{ id: 'element4', label: 'Element 4' },
+				{ id: 'element5', label: 'Element 5' },
+				{ id: 'element5', label: 'Element 6' },
+				{ id: 'element5', label: 'Element 7' },
+				{ id: 'element5', label: 'Element 8' }
 			];
-
-			// Objekt zum Speichern der Farbwerte
-			const colorValues = {};
-
-			// Funktion zum Aktualisieren der Farbwerte-Liste
-			function updateColorValuesList() {
-				const colorValuesList = document.getElementById('colorValuesList');
-				colorValuesList.textContent = JSON.stringify(colorValues, null, 2); // Schön formatierte JSON-Ausgabe
-			}
-
-			// Funktion zum Hinzufügen von Farbwerten zum Objekt
-			function addColorValue(className, bgColor, borderColor, textColor) {
-				colorValues[className] = {
-					backgroundColor: bgColor,
-					borderColor: borderColor,
-					textColor: textColor
-				};
-				updateColorValuesList(); // Liste aktualisieren
-			}
-
-			// Funktion zum Kopieren der Farbwerte in die Zwischenablage
-			function copyColorValues() {
-				const colorValuesText = JSON.stringify(colorValues, null, 2);
-				navigator.clipboard.writeText(colorValuesText)
-						.then(() => alert('Farbwerte wurden kopiert!'))
-						.catch(() => alert('Fehler beim Kopieren der Farbwerte.'));
-			}
-
-			// Event-Listener für den Kopieren-Button
-			document.getElementById('copyButton').addEventListener('click', copyColorValues);
-
 			function createColorControls() {
 				const container = document.getElementById('colorControls');
-				if (!container) {
-					console.error('Container mit ID "colorControls" nicht gefunden!');
-					return;
-				}
-
 				elementsToStyle.forEach(element => {
 					const wrapper = document.createElement('div');
 					wrapper.classList.add('control-group');
 
-					// Label und Input für Hintergrundfarbe
-					const bgLabel = document.createElement('label');
-					bgLabel.classList.add('color-label');
-					bgLabel.innerHTML = `${element.label} Hintergrundfarbe:`;
+					const label = document.createElement('label');
+					label.classList.add('color-label');
+					label.setAttribute('for', element.id);  // Setze das 'for'-Attribut auf die ID des Ziel-Elements
+					label.innerHTML = `${element.label} Hintergrundfarbe:`;
 
 					const bgColorInput = document.createElement('input');
 					bgColorInput.type = 'color';
 					bgColorInput.value = '#ff0000'; // Default-Farbe
-					bgColorInput.id = `farbe${element.className}`;
+					bgColorInput.id = `farbe${element.id}`;
 
-					// Label und Input für Randfarbe
 					const borderLabel = document.createElement('label');
 					borderLabel.classList.add('color-label');
+					borderLabel.setAttribute('for', `border${element.id}`);  // Setze das 'for'-Attribut
 					borderLabel.innerHTML = `${element.label} Randfarbe:`;
 
 					const borderColorInput = document.createElement('input');
 					borderColorInput.type = 'color';
 					borderColorInput.value = '#000000'; // Default-Farbe
-					borderColorInput.id = `border${element.className}`;
+					borderColorInput.id = `border${element.id}`;
 
-					// Label und Input für Schriftfarbe
-					const textLabel = document.createElement('label');
-					textLabel.classList.add('color-label');
-					textLabel.innerHTML = `${element.label} Schriftfarbe:`;
-
-					const textColorInput = document.createElement('input');
-					textColorInput.type = 'color';
-					textColorInput.value = element.textColor; // Standard-Schriftfarbe
-					textColorInput.id = `text${element.className}`;
-
-					// Elemente zum DOM hinzufügen
-					wrapper.appendChild(bgLabel);
+					wrapper.appendChild(label);
 					wrapper.appendChild(bgColorInput);
 					wrapper.appendChild(borderLabel);
 					wrapper.appendChild(borderColorInput);
-					wrapper.appendChild(textLabel);
-					wrapper.appendChild(textColorInput);
 					container.appendChild(wrapper);
 
-					// Event-Listener für Hintergrundfarbe
 					bgColorInput.addEventListener('input', () => {
 						const bgColor = bgColorInput.value;
 						const borderColor = borderColorInput.value;
-						const textColor = textColorInput.value;
-						updateStyles(element.className, bgColor, borderColor, textColor, 'background');
-						addColorValue(element.className, bgColor, borderColor, textColor); // Farbwert speichern
+						updateStyles(element.id, bgColor, borderColor);
 					});
 
-					// Event-Listener für Randfarbe
 					borderColorInput.addEventListener('input', () => {
 						const bgColor = bgColorInput.value;
 						const borderColor = borderColorInput.value;
-						const textColor = textColorInput.value;
-						updateStyles(element.className, bgColor, borderColor, textColor, 'border');
-						addColorValue(element.className, bgColor, borderColor, textColor); // Farbwert speichern
+						updateStyles(element.id, bgColor, borderColor);
 					});
-
-					// Event-Listener für Schriftfarbe
-					textColorInput.addEventListener('input', () => {
-						const bgColor = bgColorInput.value;
-						const borderColor = borderColorInput.value;
-						const textColor = textColorInput.value;
-						updateStyles(element.className, bgColor, borderColor, textColor, 'text');
-						addColorValue(element.className, bgColor, borderColor, textColor); // Farbwert speichern
-					});
-
-					// Event-Listener für Hover-Ereignis
-					bgLabel.addEventListener('mouseover', () => highlightElements(element.className));
-					bgLabel.addEventListener('mouseout', () => removeHighlight(element.className));
-					borderLabel.addEventListener('mouseover', () => highlightElements(element.className));
-					borderLabel.addEventListener('mouseout', () => removeHighlight(element.className));
-					textLabel.addEventListener('mouseover', () => highlightElements(element.className));
-					textLabel.addEventListener('mouseout', () => removeHighlight(element.className));
 				});
 			}
 
-			function updateStyles(className, bgColor, borderColor, textColor, property) {
-				const elements = document.querySelectorAll(`.${className}`);
-				console.log(`Elemente mit Klasse .${className}:`, elements);
-
-				elements.forEach(element => {
-					const computedStyle = window.getComputedStyle(element);
-					console.log(`Berechneter border-Wert für .${className}:`, computedStyle.border);
-
-					// Nur die Hintergrundfarbe aktualisieren, wenn property 'background' ist
-					if (property === 'background') {
-						if (computedStyle.background.includes('radial-gradient')) {
-							const newBackground = replaceColorsInGradient(computedStyle.background, bgColor);
-							console.log(`Neuer Gradient:`, newBackground);
-							element.style.background = newBackground;
-						} else {
-							element.style.backgroundColor = bgColor;
-						}
+			function updateStyles(elementId, bgColor, borderColor) {
+				const element = document.getElementById(elementId);
+				if (element) {
+					// Wenn der Hintergrund keine transparente Farbe hat, behalten wir rgba bei
+					if (bgColor.startsWith('rgba')) {
+						element.style.backgroundColor = bgColor;
+					} else {
+						element.style.backgroundColor = bgColor;
 					}
 
-					// Nur die Randfarbe aktualisieren, wenn property 'border' ist
-					if (property === 'border') {
-						// Wenn border 'none' ist, setze einen Standardrand
-						if (!computedStyle.border || computedStyle.border === 'none') {
-							element.style.border = `1px solid ${borderColor}`;
-						} else {
-							// Andernfalls nur die Randfarbe aktualisieren
-							element.style.borderColor = borderColor;
-						}
+					// Rand setzen, wenn keiner da ist
+					if (!element.style.border) {
+						element.style.border = '1px solid ' + borderColor; // Standardrand hinzufügen
+					} else {
+						element.style.borderColor = borderColor; // Nur die Farbe ändern, wenn bereits ein Rand existiert
 					}
-
-					// Nur die Schriftfarbe aktualisieren, wenn property 'text' ist
-					if (property === 'text') {
-						element.style.color = textColor;
-						const nestedElements = element.querySelectorAll('*'); // Alle verschachtelten Elemente auswählen
-						nestedElements.forEach(nestedElement => {
-							nestedElement.style.color = textColor;
-						});
-					}
-				});
-			}
-
-			function replaceColorsInGradient(gradientValue, newColor) {
-				console.log(`Originaler Gradient:`, gradientValue);
-				const newGradient = gradientValue.replace(
-						/#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})|rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)/g,
-						newColor
-				);
-				console.log(`Neuer Gradient:`, newGradient);
-				return newGradient;
-			}
-
-			function highlightElements(className) {
-				const elements = document.querySelectorAll(`.${className}`);
-				elements.forEach(element => {
-					element.style.outline = '2px solid pink'; // Rosa Linie hinzufügen
-				});
-			}
-
-			function removeHighlight(className) {
-				const elements = document.querySelectorAll(`.${className}`);
-				elements.forEach(element => {
-					element.style.outline = ''; // Rosa Linie entfernen
-				});
+				}
 			}
 
 			function toggleColorControls() {
@@ -368,9 +243,37 @@
 			}
 
 			// Steuerungselemente erstellen, wenn die Seite geladen wird
-			document.addEventListener('DOMContentLoaded', createColorControls);
+			createColorControls();
+
+			elementsToStyle.forEach((element) => {
+				const label = document.querySelector(`label[for="${element.id}"]`);
+				const targetElement = document.getElementById(element.id);
+
+				if (label && targetElement) {
+					let originalBorder = targetElement.style.border || ''; // Speichert den ursprünglichen Rand
+
+					label.addEventListener('mouseenter', () => {
+						targetElement.style.border = '3px solid pink';
+					});
+
+					label.addEventListener('mouseleave', () => {
+						// Setze den ursprünglichen Rand zurück, falls vorhanden
+						targetElement.style.border = originalBorder || '';
+					});
+				}
+			});
+
 		</script>
 	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+	<script>
+	  fetch('text/test.md')
+		.then(response => response.text())
+		.then(data => {
+		  let converter = new showdown.Converter();
+		  document.getElementById('markdown-content').innerHTML = converter.makeHtml(data);
+		});
+	</script>
 	<script>
 		document.querySelectorAll(".modul").forEach(modul => {
 			modul.addEventListener("click", () => {
@@ -393,7 +296,7 @@
 		}
 	</script>
 <footer>
-	<span>Impressum</span>|<span style="cursor:pointer;" onclick="toggleColorControls();">Color</span>
+	<P>Impressum</p>
 </footer>
 </body>
 </html>

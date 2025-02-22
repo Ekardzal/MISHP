@@ -18,13 +18,13 @@ footer {
 	background:#010A14;
 	width:100%;
 	margin:0px;
-    padding:3px;
+    padding:1px;
     position:fixed;
     bottom:0;
-	color:#363b42;
 }
-footer span {margin:5px;}
-footer :hover {margin:5px; text-decoration:underline; color:white;}
+footer p {
+ margin:5px;
+}
 /* FONT ---------------------------------------------------- */
 h1 {font-size:26px;color:white;}
 a {text-decoration:none;}
@@ -58,8 +58,7 @@ hr {border: none;height: 2px;background-color: black;}
 	display:flex;
 	align-items:center; /* Vertikal zentrieren */
 	overflow:hidden;
-	/*background: linear-gradient(to bottom, #0A0A0A, #010A14);*/
-	background-color:#0A0A0A;
+	background: linear-gradient(to bottom, #0A0A0A, #010A14);
 	width:100vw;
 	padding-top:3px;
 	padding-bottom:3px;
@@ -67,7 +66,7 @@ hr {border: none;height: 2px;background-color: black;}
 	margin-left:auto;
 	margin-right:auto;
 	border:white solid 0px;
-	z-index:11;
+	z-index:5;
 }
 .nav-bar li a {
 	color:white;
@@ -130,7 +129,7 @@ hr {border: none;height: 2px;background-color: black;}
 	margin-right: auto;
 	margin-top: 25px;
 	border: solid lightslategrey 1px;
-	background:radial-gradient(#0A0A0A, #010A14);
+	background: radial-gradient(#0A0A0A, #010A14);
 	fonz-size: 16px;
 	padding: 8px;
 	color: white;
@@ -176,7 +175,7 @@ ul {
 	display:flex;
 	align-items:center;
 	border:white solid 0px;
-	width:75%;
+	width:60%;
 	list-style-type: none;
 	margin:0;
 	overflow: hidden;
@@ -205,7 +204,6 @@ li a:hover {text-decoration:underline;}
 	margin-left:auto;
 	margin-right:auto;
 	align-items:center;
-	margin-top:1px;
 }
 /*Banner Left  ---------------------------------------------------- */
 .bannerleft {
@@ -260,7 +258,7 @@ li a:hover {text-decoration:underline;}
 	height:auto;
 	margin-top:auto;
 	margin-bottom:auto;
-	border-radius:3px;
+	border-radius:13px;
 }
 .bannerright .showimg {width:100%;}
 /*Modul Übersicht  ---------------------------------------------------- */
@@ -480,39 +478,4 @@ li a:hover {text-decoration:underline;}
 	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
 	opacity:1;
 }
-
-/* Das Element für die Steuerungselemente ist anfangs unsichtbar und wird mit einer Transition animiert */
-#colorControls {
-	display: none;
-	position: absolute;
-	width: 100%;
-	transition-duration:2s;
-	border-radius:5px;
-	padding-bottom:75px;
-}
-.color-label {margin-left:20px; font-weight:bold; padding:20px;}
-.color-label:hover {cursor: pointer;}
-label[for="element1"]:hover + #element1 {
-	border: 3px solid pink; /* Fügt beim Hover des Labels eine pinke Linie hinzu */
-}
-.control-group {margin:20px; background-color:rgba(0,0,0,0.5); padding:8px; border-radius:5px;}
-#colorControls.visible { 	/* Die Steuerungselemente werden nach oben geschoben */
-	bottom:0;
-	display: block;
-	max-width:50vw;
-	margin-left:auto;
-	margin-right:auto;
-	background:rgba(21, 13, 17, 0.8);
-	transform: translateY(0);
-}
-#colorValues {
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	overflow:hidden;
-	max-height:6vh;
-}
-#colorValues button {position:fixed; right:10%; width:auto; margin:0;}
-#colorValues h3 {position:fixed; left:10%; margin-right:10px;}
-#colorValues pre {color:pink;border:solid grey 1px; margin-left:auto;margin-right:auto; margin-top:50px; max-height:6vh; }
 /* Template - index.html */
