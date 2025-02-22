@@ -23,7 +23,7 @@ footer {
     bottom:0;
 	color:#363b42;
 }
-footer span {margin:5px;}
+footer span {margin:5px; font-size:14px;}
 footer :hover {margin:5px; text-decoration:underline; color:white;}
 /* FONT ---------------------------------------------------- */
 h1 {font-size:26px;color:white;}

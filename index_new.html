@@ -159,12 +159,11 @@
 				<!-- Controls werden hier dynamisch erstellt -->
 				<div id="colorValues">
 					<h3>Eingestellte Farbwerte:</h3>
+					<!-- Liste der Farbwerte -->
 					<pre id="colorValuesList"></pre>
 					<button id="copyButton" class="nav-button">Farbwerte kopieren</button>
 				</div>
 			</div>
-			<!-- Liste der Farbwerte -->
-
 		</div>
 		<script>
 			// Elemente, die angepasst werden sollen
@@ -177,7 +176,7 @@
 				{ className: 'bannerleft', label: 'Element 6', textColor: '#000000' },
 				{ className: 'ban-h1', label: 'Element 7', textColor: '#000000' },
 				{ className: 'nav-button', label: 'Element 8', textColor: '#000000' },
-				{ className: 'element8', label: 'Element 9', textColor: '#000000' }
+				{ className: 'foo', label: 'Element 9', textColor: '#000000' }
 			];
 
 			// Objekt zum Speichern der Farbwerte
@@ -260,6 +259,10 @@
 					wrapper.appendChild(textColorInput);
 					container.appendChild(wrapper);
 
+					// Event-Listener für Hover-Ereignis auf das übergeordnete div (wrapper)
+					wrapper.addEventListener('mouseover', () => highlightElements(element.className));
+					wrapper.addEventListener('mouseout', () => removeHighlight(element.className));
+
 					// Event-Listener für Hintergrundfarbe
 					bgColorInput.addEventListener('input', () => {
 						const bgColor = bgColorInput.value;
@@ -286,14 +289,6 @@
 						updateStyles(element.className, bgColor, borderColor, textColor, 'text');
 						addColorValue(element.className, bgColor, borderColor, textColor); // Farbwert speichern
 					});
-
-					// Event-Listener für Hover-Ereignis
-					bgLabel.addEventListener('mouseover', () => highlightElements(element.className));
-					bgLabel.addEventListener('mouseout', () => removeHighlight(element.className));
-					borderLabel.addEventListener('mouseover', () => highlightElements(element.className));
-					borderLabel.addEventListener('mouseout', () => removeHighlight(element.className));
-					textLabel.addEventListener('mouseover', () => highlightElements(element.className));
-					textLabel.addEventListener('mouseout', () => removeHighlight(element.className));
 				});
 			}
 
@@ -392,7 +387,7 @@
 			isOpen = !isOpen;  // Toggle the state
 		}
 	</script>
-<footer>
+<footer class="foo">
 	<span>Impressum</span>|<span style="cursor:pointer;" onclick="toggleColorControls();">Color</span>
 </footer>
 </body>
